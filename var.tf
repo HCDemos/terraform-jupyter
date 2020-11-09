@@ -1,9 +1,9 @@
 variable "availability_zone" {
-  default = "us-west-2a"
+  default = "us-east-2a"
 }
 
 variable "contact" {
-  default = "blake.cannon@caprinomics.com"
+  default = "peada04@gmail.com"
 }
 
 variable "environment" {
@@ -11,7 +11,7 @@ variable "environment" {
 }
 
 variable "instance_type" {
-  default = "t2.micro"
+  default = "t2.small"
 }
 
 variable "service" {
