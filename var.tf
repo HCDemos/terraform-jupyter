@@ -7,7 +7,7 @@ variable "contact" {
 }
 
 variable "environment" {
-  default = "TEST"
+  default = "TEST1"
 }
 
 variable "instance_type" {
