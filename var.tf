@@ -1,5 +1,5 @@
 variable "availability_zone" {
-  default = "us-east-2"
+  default = "us-east-1a"
 }
 
 variable "contact" {
