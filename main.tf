@@ -1,5 +1,5 @@
 provider "aws" {
-  region  = "${var.aws_region}"
+  region  = var.aws_region
 }
 
 data "aws_ami" "al2" {
@@ -30,7 +30,7 @@ resource "local_file" "pem" {
 }
 
 resource "aws_security_group" "jupyter" {
-  name        = "${var.service}-${uuid()}"
+  name        = "{$var.service}-${uuid()}"
   description = "Security group for ${title(var.service)}"
 
   ingress {
