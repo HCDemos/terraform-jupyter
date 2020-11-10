@@ -24,6 +24,7 @@ runuser -l ec2-user -c 'jupyter notebook --generate-config' &&
     sed -i -e "s/#c.NotebookApp.ip = 'localhost'/c.NotebookApp.ip = '"$(curl http://169.254.169.254/latest/meta-data/public-hostname)"'/g" /home/ec2-user/.jupyter/jupyter_notebook_config.py &&
     sed -i -e "s/#c.NotebookApp.allow_origin = ''/c.NotebookApp.allow_origin = '*'/g" /home/ec2-user/.jupyter/jupyter_notebook_config.py &&
     sed -i -e "s/#c.NotebookApp.open_browser = True/c.NotebookApp.open_browser = False/g" /home/ec2-user/.jupyter/jupyter_notebook_config.py
+
 # add some data science packages to the environment
 pip install tensorflow
 pip install pymysql
@@ -32,4 +33,4 @@ pip install pymysql
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mykey.key -out mycert.pem \
 	-subj "/C=US/ST=NJ/L=Stockton/O=Dis/CN=jupyter"
 # start jupyter notebook
-nohup jupyter notebook --certfile=mycert.pem --keyfile mykey.key &
+nohup jupyter notebook --certfile=mycert.pem --keyfile mykey.key 
